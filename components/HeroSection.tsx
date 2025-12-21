@@ -3,23 +3,21 @@ import Link from 'next/link';
 export default function HeroSection() {
   return (
     <section className="hero-section">
-      <div className="hero-content">
+      <div className="hero-container">
+        <p className="hero-lead">建設業界特化のDXパートナー</p>
         <h1 className="hero-title">
-          建設業界のDX化を<br />
-          ともに実現します
+          建設業界の課題を<br />
+          テクノロジーの力で、<br />
+          共に解決していく
         </h1>
-        <p className="hero-subtitle">
-          建設テックパートナーズは、建設業に特化したDXアプリの開発運用と<br />
-          DX支援を通じて、建設現場の生産性向上をサポートします。
+        <p className="hero-description">
+          私たちは建設業に特化したDXアプリの開発運用とDX支援を通じて、<br className="pc-only" />
+          建設現場の生産性向上をサポートします。
         </p>
-        <div className="cta-buttons-container">
-          <Link href="/contact" className="cta-button">
-            <i className="fas fa-calendar-check" style={{ marginRight: '0.5rem' }}></i>
-            無料相談を申し込む
-          </Link>
-          <Link href="/cases" className="cta-button">
-            <i className="fas fa-chart-bar" style={{ marginRight: '0.5rem' }}></i>
-            導入事例を見る
+        <div className="hero-cta">
+          <Link href="/contact" className="btn-primary">
+            無料相談はこちら
+            <span className="btn-arrow">→</span>
           </Link>
         </div>
       </div>

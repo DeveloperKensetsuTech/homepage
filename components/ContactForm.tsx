@@ -111,7 +111,7 @@ export default function ContactForm() {
               </p>
               <button
                 type="button"
-                className="cta-button"
+                className="btn-primary"
                 onClick={() => setStatus('idle')}
               >
                 新しいお問い合わせ
@@ -293,9 +293,13 @@ export default function ContactForm() {
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <button
                 type="submit"
-                className="cta-button"
+                className="btn-primary"
                 disabled={status === 'loading'}
-                style={{ cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}
+                style={{
+                  cursor: status === 'loading' ? 'not-allowed' : 'pointer',
+                  opacity: status === 'loading' ? 0.7 : 1,
+                  border: 'none',
+                }}
               >
                 {status === 'loading' ? '送信中...' : 'お問い合わせを送信'}
               </button>

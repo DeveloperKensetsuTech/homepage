@@ -2,18 +2,19 @@ import Link from 'next/link';
 
 export default function CTASection() {
   return (
-    <section className="stats-section">
-      <div className="section text-center">
-        <h2 style={{ color: 'white', marginBottom: '3rem' }}>
-          あなたの会社のDX化も<br />
-          一緒に実現しませんか？
+    <section className="cta-section">
+      <div className="cta-container">
+        <h2 className="cta-title">
+          まずはお気軽にご相談ください
         </h2>
-        <div className="cta-buttons-container">
-          <Link href="/contact" className="cta-button">
-            <i className="fas fa-calendar-check" style={{ marginRight: '0.5rem' }}></i>
-            無料相談を申し込む
-          </Link>
-        </div>
+        <p className="cta-description">
+          建設業界のDX化に関するお悩みやご質問など、<br className="pc-only" />
+          お気軽にお問い合わせください。
+        </p>
+        <Link href="/contact" className="btn-primary">
+          無料相談はこちら
+          <span className="btn-arrow">→</span>
+        </Link>
       </div>
     </section>
   );

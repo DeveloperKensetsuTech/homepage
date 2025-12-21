@@ -5,32 +5,36 @@ export default function Footer() {
     <footer className="tech-footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>株式会社main character</h3>
-          <p>建設テックパートナーズ</p>
-          <p>
+          <p className="footer-brand">建設テックパートナーズ</p>
+          <p className="footer-description">
+            株式会社main character<br />
             〒814-0001<br />
-            福岡県福岡市早良区百道2-15-1
+            福岡県福岡市早良区百道浜2-3-2
           </p>
         </div>
 
         <div className="footer-section">
-          <h3>サービス</h3>
-          <p><Link href="/cases">DXアプリ開発・運用</Link></p>
-          <p><Link href="/cases">業務効率化支援</Link></p>
-          <p><Link href="/contact">無料コンサルティング</Link></p>
+          <h3>Services</h3>
+          <ul>
+            <li><Link href="/services/dx-consulting">DXコンサルティング</Link></li>
+            <li><Link href="/services/product-development">プロダクト開発</Link></li>
+          </ul>
         </div>
 
         <div className="footer-section">
-          <h3>企業情報</h3>
-          <p><Link href="/company">会社概要</Link></p>
-          <p><Link href="/members">メンバー紹介</Link></p>
-          <p><Link href="/contact">お問い合わせ</Link></p>
+          <h3>Company</h3>
+          <ul>
+            <li><Link href="/company">会社概要</Link></li>
+            <li><Link href="/blog">ブログ</Link></li>
+          </ul>
         </div>
 
         <div className="footer-section">
-          <h3>お問い合わせ</h3>
-          <p>メール: info@kensetsu-tech.com</p>
-          <p>営業時間: 平日 9:00-18:00</p>
+          <h3>Contact</h3>
+          <ul>
+            <li><Link href="/contact">お問い合わせ</Link></li>
+            <li><Link href="/members">メンバー</Link></li>
+          </ul>
         </div>
       </div>
 

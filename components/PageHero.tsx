@@ -5,10 +5,10 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle }: PageHeroProps) {
   return (
-    <section className="hero-section">
-      <div className="hero-content">
-        <h1 className="hero-title">{title}</h1>
-        <p className="hero-subtitle" dangerouslySetInnerHTML={{ __html: subtitle }} />
+    <section className="page-hero">
+      <div className="page-hero-content">
+        <h1 className="page-hero-title">{title}</h1>
+        <p className="page-hero-subtitle" dangerouslySetInnerHTML={{ __html: subtitle }} />
       </div>
     </section>
   );

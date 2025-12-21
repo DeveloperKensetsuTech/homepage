@@ -1,10 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return router.pathname === '/';
+    }
+    return router.pathname.startsWith(path);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,7 +23,6 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
-  // メニューが開いているときは背景のスクロールを防止
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -31,10 +39,10 @@ export default function Header() {
     <header className="tech-header">
       <nav className="tech-nav">
         <Link href="/" className="tech-logo">
-          建設テックパートナーズ
+          <img src="/images/logo.jpg" alt="建設テックパートナーズ" className="logo-image" />
+          <span>建設テックパートナーズ</span>
         </Link>
 
-        {/* ハンバーガーメニューボタン */}
         <button
           className="mobile-menu-button"
           onClick={toggleMenu}
@@ -43,18 +51,16 @@ export default function Header() {
           <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
         </button>
 
-        {/* ナビゲーションリンク */}
         <ul className={`tech-nav-links ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
-          <li><Link href="/" onClick={closeMenu}>ホーム</Link></li>
-          <li><Link href="/company" onClick={closeMenu}>会社概要</Link></li>
-          <li><Link href="/cases" onClick={closeMenu}>事例紹介</Link></li>
-          <li><Link href="/blog" onClick={closeMenu}>ブログ</Link></li>
-          <li><Link href="/members" onClick={closeMenu}>メンバー</Link></li>
-          <li><Link href="/contact" onClick={closeMenu}>お問い合わせ</Link></li>
+          <li><Link href="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>ホーム</Link></li>
+          <li><Link href="/services/dx-consulting" onClick={closeMenu} className={isActive('/services/dx-consulting') ? 'active' : ''}>DXコンサル</Link></li>
+          <li><Link href="/services/product-development" onClick={closeMenu} className={isActive('/services/product-development') ? 'active' : ''}>プロダクト開発</Link></li>
+          <li><Link href="/company" onClick={closeMenu} className={isActive('/company') ? 'active' : ''}>会社概要</Link></li>
+          <li><Link href="/blog" onClick={closeMenu} className={isActive('/blog') ? 'active' : ''}>ブログ</Link></li>
+          <li><Link href="/contact" onClick={closeMenu} className={isActive('/contact') ? 'active' : ''}>お問い合わせ</Link></li>
         </ul>
       </nav>
 
-      {/* モバイルメニューオーバーレイ */}
       {isMenuOpen && (
         <div
           className="mobile-menu-overlay"

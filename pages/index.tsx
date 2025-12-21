@@ -2,9 +2,11 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
+import ServicesSection from '@/components/ServicesSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import StatsSection from '@/components/StatsSection';
-import ServicesSection from '@/components/ServicesSection';
+import ClientsSection from '@/components/ClientsSection';
+import CTASection from '@/components/CTASection';
 
 export default function Home() {
   return (
@@ -22,10 +24,14 @@ export default function Home() {
       </Head>
 
       <Header />
-      <HeroSection />
-      <FeaturesSection />
-      <StatsSection />
-      <ServicesSection />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <FeaturesSection />
+        <StatsSection />
+        <ClientsSection />
+        <CTASection />
+      </main>
       <Footer />
     </>
   );
