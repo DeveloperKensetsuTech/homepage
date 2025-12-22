@@ -26,14 +26,14 @@ export default function DXConsulting() {
 
   const cases = [
     {
-      company: '株式会社カミノ',
+      company: '株式会社A',
       industry: '土木工事業',
       challenge: '紙ベースの日報管理で集計に時間がかかっていた',
       solution: 'デジタル日報システムの導入とワークフロー改善',
       result: '月間20時間の業務削減を実現'
     },
     {
-      company: '株式会社天翔',
+      company: '株式会社B',
       industry: '建築工事業',
       challenge: '現場と事務所の情報共有に遅延が発生',
       solution: 'クラウド型の情報共有基盤を構築',

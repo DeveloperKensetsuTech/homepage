@@ -26,14 +26,14 @@ export default function ProductDevelopment() {
 
   const cases = [
     {
-      company: '株式会社成木',
+      company: '株式会社A',
       industry: '設備工事業',
       challenge: '複数現場の進捗管理がExcelで煩雑だった',
       solution: 'カスタム進捗管理アプリを開発',
       result: '全現場の状況を一元管理、報告作業を80%削減'
     },
     {
-      company: '株式会社櫻建',
+      company: '株式会社B',
       industry: '総合建設業',
       challenge: '協力会社との書類やりとりに手間がかかっていた',
       solution: '電子書類管理システムを構築',

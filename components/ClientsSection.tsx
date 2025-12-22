@@ -13,7 +13,7 @@ export default function ClientsSection() {
 
   return (
     <section className="clients-section">
-      <div className="clients-container">
+      {/* <div className="clients-container">
         <p className="clients-title">導入企業</p>
         <div className="clients-marquee">
           <div className="clients-track">
@@ -28,7 +28,7 @@ export default function ClientsSection() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
