@@ -18,12 +18,12 @@ export default function BlogDetail({ blog }: Props) {
         <title>{`${blog.title} | ブログ - 建設テックパートナーズ`}</title>
         <meta
           name="description"
-          content={blog.content.substring(0, 150).replace(/<[^>]*>/g, '')}
+          content={(blog.html || blog.content).substring(0, 150).replace(/<[^>]*>/g, '')}
         />
         <meta property="og:title" content={blog.title} />
         <meta
           property="og:description"
-          content={blog.content.substring(0, 150).replace(/<[^>]*>/g, '')}
+          content={(blog.html || blog.content).substring(0, 150).replace(/<[^>]*>/g, '')}
         />
         {blog.eyecatch && <meta property="og:image" content={blog.eyecatch.url} />}
         <meta property="og:type" content="article" />
@@ -69,7 +69,7 @@ export default function BlogDetail({ blog }: Props) {
 
             <div
               className={styles.content}
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: blog.html || blog.content }}
             />
           </article>
 

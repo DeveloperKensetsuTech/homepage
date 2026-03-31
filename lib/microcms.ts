@@ -32,6 +32,7 @@ export type Blog = {
     id: string;
     name: string;
   };
+  html?: string;
 };
 
 // ブログ記事一覧のレスポンス型
