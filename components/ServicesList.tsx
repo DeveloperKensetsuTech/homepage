@@ -16,7 +16,7 @@ interface Service {
   slug: string;
   name: string;
   nameSub?: string;
-  tagline: string;
+  tagline?: string;
   description?: string;
   features?: string[];
   comingSoon?: boolean;
