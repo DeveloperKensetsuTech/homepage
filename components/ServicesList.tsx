@@ -13,6 +13,7 @@ interface ServiceImage {
 type ImageLayout = 'wide' | 'square-grid';
 
 interface Service {
+  slug: string;
   name: string;
   tagline: string;
   description?: string;
@@ -27,6 +28,7 @@ export default function ServicesList() {
 
   const services: Service[] = [
     {
+      slug: 'scaffold',
       name: 'union 資材発注 for 足場',
       tagline: '足場業界向け資材発注アプリ',
       description:
@@ -49,6 +51,7 @@ export default function ServicesList() {
       imageLayout: 'square-grid',
     },
     {
+      slug: 'lease',
       name: 'union 資材発注 for リース',
       tagline: 'リース業界向け資材発注アプリ',
       description:
@@ -71,16 +74,19 @@ export default function ServicesList() {
       imageLayout: 'square-grid',
     },
     {
+      slug: 'care',
       name: 'union 介護記録',
       tagline: '利用者一人ひとりの「今日」を、かんたんに記録',
       comingSoon: true,
     },
     {
+      slug: 'daily-report',
       name: 'union 日報',
       tagline: '現場の今日を、3分で残す',
       comingSoon: true,
     },
     {
+      slug: 'attendance',
       name: 'union 勤怠管理',
       tagline: '現場主義の勤怠管理',
       comingSoon: true,
@@ -92,7 +98,8 @@ export default function ServicesList() {
       <div className="services-list-inner">
         {services.map((service, index) => (
           <article
-            key={service.name}
+            key={service.slug}
+            id={`service-${service.slug}`}
             className={`service-item ${service.images ? 'service-item--with-media' : ''} reveal stagger-${Math.min(index + 1, 5)} ${isVisible ? 'visible' : ''}`}
           >
             <div className="service-item-content">

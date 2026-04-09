@@ -947,6 +947,17 @@ body {
   text-align: center;
 }
 
+.products-description-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.products-description-link:hover {
+  opacity: 0.78;
+}
+
 .products-description h3 {
   font-size: 1.5rem;
   font-family: var(--font-display);
@@ -954,6 +965,20 @@ body {
   color: var(--gray-900);
   margin-bottom: 1rem;
   letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.products-description-arrow {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: transform 0.25s ease;
+}
+
+.products-description-link:hover .products-description-arrow {
+  transform: translateX(6px);
 }
 
 .products-description p {
@@ -1010,12 +1035,17 @@ body {
   border: 1px solid var(--gray-200);
   border-radius: 10px;
   padding: 1.25rem 2rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   transition: all 0.3s ease;
 }
 
 .product-marquee-item:hover {
   border-color: var(--primary-color);
   box-shadow: 0 4px 20px rgba(0, 184, 212, 0.10);
+  transform: translateY(-2px);
 }
 
 .product-marquee-item.coming-soon {
@@ -2145,7 +2175,7 @@ body {
 }
 
 .services-list-inner {
-  max-width: 1140px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -2158,6 +2188,7 @@ body {
   gap: 2rem;
   padding-bottom: 5rem;
   border-bottom: 1px solid var(--gray-200);
+  scroll-margin-top: 100px;
 }
 
 .service-item:last-child {
@@ -2282,13 +2313,22 @@ body {
 
 .service-item-media--square-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: 1rem;
 }
 
 .service-item-media-frame--square-grid {
-  aspect-ratio: 16 / 10;
   width: 100%;
+}
+
+/* 1枚目（スマホ画像）は正方形 */
+.service-item-media--square-grid .service-item-media-frame:nth-child(1) {
+  aspect-ratio: 1 / 1;
+}
+
+/* 2枚目（PC画像）は 16:10 */
+.service-item-media--square-grid .service-item-media-frame:nth-child(2) {
+  aspect-ratio: 16 / 10;
 }
 
 @media (min-width: 768px) {
@@ -2300,7 +2340,7 @@ body {
   /* 画像があるサービスは 左テキスト / 右画像 の2カラム */
   .service-item--with-media {
     display: grid;
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns: 0.6fr 1.4fr;
     gap: 3rem;
     align-items: center;
   }
@@ -2316,6 +2356,10 @@ body {
   .service-item--with-media .service-item-features {
     grid-template-columns: 1fr;
     gap: 0.625rem;
+  }
+
+  .service-item-media--square-grid {
+    gap: 1.5rem;
   }
 }
 
@@ -2336,6 +2380,7 @@ body {
   .service-item-name {
     font-size: 1.5rem;
   }
+
 }
 
 /* ===== フッター v2 ===== */
