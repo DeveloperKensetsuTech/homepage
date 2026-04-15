@@ -9,7 +9,7 @@ eyecatch: "/images/blog/overload-eyecatch.jpg"
 
 ## 2026年、過積載取り締まりは「過去最強」レベルに
 
-![積載物を運ぶトラックの後部](/images/blog/scaffold-truck.jpg)
+![建設資材を満載したトラック](/images/blog/scaffold-truck.jpg)
 
 2026年1月、茨城県警は大型貨物車による死亡・重傷事故が連続したことを受け、過積載の一斉取り締まりを強化すると発表しました。過積載は単なる交通違反ではなく、運転手だけでなく、積載を指示した会社の管理者・経営者まで責任を問われる重大な法令違反です。道路交通法では、過積載を命じた運行管理者や事業主に対し、6か月以下の懲役または10万円以下の罰金が科されます。
 
@@ -19,7 +19,7 @@ eyecatch: "/images/blog/overload-eyecatch.jpg"
 
 ## なぜ足場業界で過積載が起きやすいのか
 
-![スマートフォンで発注作業を行う現場の様子](/images/blog/order-smartphone.jpg)
+![紙やFAXで発注を行う現場の様子](/images/blog/order-smartphone.jpg)
 
 足場工事の過積載は、ドライバーの意図ではなく「現場運用の構造的な問題」から発生しています。主な原因は次の3つです。
 
