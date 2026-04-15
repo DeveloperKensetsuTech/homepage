@@ -1,6 +1,6 @@
 ---
 title: "足場業界のDXを加速する具体的なアプリ・システムまとめ｜導入事例と選び方"
-category: "業界トレンド"
+category: "業務改善"
 publishedAt: "2026-04-02T10:00:00+09:00"
 eyecatch: "/images/blog/scaffolding-dx-eyecatch.jpg"
 ---
