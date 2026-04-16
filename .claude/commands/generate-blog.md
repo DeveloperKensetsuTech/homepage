@@ -52,7 +52,8 @@ $ARGUMENTS
 
 ### 4. 中間CTA（自然な導線）
 - セクション2の後に、記事の文脈に沿った自然な形でunionプロダクトへの導線を入れる
-- 例: 「資材発注のデジタル化に興味がある方は、[unionの資材発注サービス](https://and-and-and.com/services)もご覧ください。」
+- 例: 「資材発注のデジタル化に興味がある方は、[unionの資材発注サービス](/services#service-scaffold)もご覧ください。」
+- リンクはサイト内の相対パスを使う（`/services`, `/services#service-scaffold`, `/services#service-rental`, `/contact` など）。絶対URL（https://...）は使わない。
 - 宣伝臭くならないよう、あくまで「関連情報」として提示する
 
 ### 5. セクション3（実践ステップ・ノウハウ）
@@ -73,7 +74,7 @@ $ARGUMENTS
 
 unionは建設・福祉の現場に特化したSaaSプロダクトを提供しています。資材発注、日報管理、勤怠管理など、現場の課題に合わせたツールをラインナップしています。
 
-[unionのサービスを見る](https://and-and-and.com/services) | [お問い合わせ](https://and-and-and.com/contact)
+[unionのサービスを見る](/services) | [お問い合わせ](/contact)
 ```
 
 ## 会社情報（記事のトーン・文脈に使用）
