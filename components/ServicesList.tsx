@@ -31,31 +31,31 @@ export default function ServicesList() {
   const services: Service[] = [
     {
       slug: 'scaffold',
-      name: 'union 資材発注',
+      name: 'union 発注',
       nameSub: 'for 足場',
       icon: '/images/icon-shizai.png',
       description:
         '紙とFAXに頼っていた足場資材の発注業務を、スマートフォンひとつで完結。現場から数タップで発注書を作成・送信でき、発注ミスや転記作業を削減します。職人と現場監督、どちらも迷わず使えるシンプルな設計です。',
       features: [
-        'スマホから数タップで資材発注',
+        'スマホから数タップで発注',
         '発注履歴・発注書PDFを自動保存',
         '現場・作業者ごとの発注管理',
       ],
       images: [
         {
           src: '/images/services/scaffold-phone.png',
-          alt: 'union 資材発注 for 足場 のスマホ資材発注書画面',
+          alt: 'union 発注 for 足場 のスマホ発注書画面',
         },
         {
           src: '/images/services/scaffold-laptop.png',
-          alt: 'union 資材発注 for 足場 の発注書履歴画面',
+          alt: 'union 発注 for 足場 の発注書履歴画面',
         },
       ],
       imageLayout: 'square-grid',
     },
     {
       slug: 'lease',
-      name: 'union 資材発注',
+      name: 'union 発注',
       nameSub: 'for リース',
       icon: '/images/icon-shizai.png',
       description:
@@ -68,11 +68,11 @@ export default function ServicesList() {
       images: [
         {
           src: '/images/services/lease-order-form.png',
-          alt: 'union 資材発注 for リース の発注情報入力画面',
+          alt: 'union 発注 for リース の発注情報入力画面',
         },
         {
           src: '/images/services/lease-categories.png',
-          alt: 'union 資材発注 for リース のカテゴリ一覧画面',
+          alt: 'union 発注 for リース のカテゴリ一覧画面',
         },
       ],
       imageLayout: 'square-grid',

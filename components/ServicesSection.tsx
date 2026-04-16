@@ -9,8 +9,8 @@ export default function ServicesSection() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal();
 
   const products = [
-    { slug: 'scaffold', nameLine1: 'union 資材発注', nameLine2: 'for 足場', comingSoon: false, icon: '/images/icon-shizai.png' },
-    { slug: 'lease', nameLine1: 'union 資材発注', nameLine2: 'for リース', comingSoon: false, icon: '/images/icon-shizai.png' },
+    { slug: 'scaffold', nameLine1: 'union 発注', nameLine2: 'for 足場', comingSoon: false, icon: '/images/icon-shizai.png' },
+    { slug: 'lease', nameLine1: 'union 発注', nameLine2: 'for リース', comingSoon: false, icon: '/images/icon-shizai.png' },
     { slug: 'care', nameLine1: 'union 介護記録', comingSoon: true },
     { slug: 'daily-report', nameLine1: 'union 日報', comingSoon: true },
     { slug: 'attendance', nameLine1: 'union 勤怠管理', comingSoon: true },

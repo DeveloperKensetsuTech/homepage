@@ -12,7 +12,7 @@ export default function Services() {
         <title>サービス | union</title>
         <meta
           name="description"
-          content="union が提供する現場特化型SaaSプロダクトの一覧。資材発注、介護記録、日報、勤怠管理など、現場の課題に寄り添ったツールを提供します。"
+          content="union が提供する現場特化型SaaSプロダクトの一覧。発注、介護記録、日報、勤怠管理など、現場の課題に寄り添ったツールを提供します。"
         />
       </Head>
 
