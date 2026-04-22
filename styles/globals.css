@@ -2754,54 +2754,85 @@ body {
   color: var(--gray-900) !important;
 }
 
-/* ===== お問い合わせ情報 ===== */
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.contact-info-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.5rem;
+/* ===== Direct contact（メール直連絡） ===== */
+.contact-direct {
   background: var(--gray-50);
-  border-radius: 8px;
+  padding: clamp(80px, 8vw, 112px) 40px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
-
-.contact-info-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--white);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contact-direct::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 80% at 50% 0%, rgba(0, 184, 212, 0.10), rgba(0, 184, 212, 0) 72%);
+  pointer-events: none;
+  z-index: -1;
+}
+.contact-direct__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.contact-direct__eyebrow {
+  font-family: var(--font-accent);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.35em;
   color: var(--primary-color);
-  font-size: 1.25rem;
-  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 24px;
+  text-transform: uppercase;
 }
-
-.contact-info-card h3 {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--gray-600);
-  margin-bottom: 0.25rem;
+.contact-direct__eyebrow-rule {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--primary-color);
 }
-
-.contact-info-main {
-  font-size: 1rem;
-  font-weight: 600;
+.contact-direct__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  color: var(--gray-700);
+  margin: 0 0 32px;
+}
+.contact-direct__email {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 34px);
+  letter-spacing: 0.02em;
   color: var(--gray-900);
-  margin-bottom: 0.25rem;
+  text-decoration: none;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray-300);
+  margin-bottom: 22px;
+  transition: color 320ms var(--ease-slow),
+              border-color 320ms var(--ease-slow);
+}
+.contact-direct__email:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.contact-direct__note {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  color: var(--gray-500);
+  letter-spacing: 0.06em;
+  margin: 0;
 }
 
-.contact-info-sub {
-  font-size: 0.8125rem;
-  color: var(--gray-500);
+@media (max-width: 720px) {
+  .contact-direct {
+    padding: 72px 24px;
+  }
 }
 
 /* ===== 会社情報 ===== */
@@ -3790,10 +3821,6 @@ body {
   .clients-marquee::before,
   .clients-marquee::after {
     width: 50px;
-  }
-
-  .contact-info-grid {
-    grid-template-columns: 1fr;
   }
 
   .page-hero-title {

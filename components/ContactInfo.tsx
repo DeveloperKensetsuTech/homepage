@@ -1,34 +1,21 @@
 export default function ContactInfo() {
-  const contactMethods = [
-    {
-      icon: 'fas fa-envelope',
-      title: 'メールでのお問い合わせ',
-      mainInfo: 'info@kensetsu-tech.com',
-      subInfo: '24時間受付・3営業日以内にご返信'
-    },
-    {
-      icon: 'fas fa-clock',
-      title: '営業時間',
-      mainInfo: '平日 9:00〜18:00',
-      subInfo: '土日祝日は休業'
-    }
-  ];
-
   return (
-    <section className="section">
-      <div className="contact-info-grid">
-        {contactMethods.map((method, index) => (
-          <div key={index} className="contact-info-card">
-            <div className="contact-info-icon">
-              <i className={method.icon}></i>
-            </div>
-            <div>
-              <h3>{method.title}</h3>
-              <p className="contact-info-main">{method.mainInfo}</p>
-              <p className="contact-info-sub">{method.subInfo}</p>
-            </div>
-          </div>
-        ))}
+    <section className="contact-direct">
+      <div className="contact-direct__inner">
+        <p className="contact-direct__eyebrow">
+          <span className="contact-direct__eyebrow-rule" aria-hidden="true" />
+          Direct contact
+        </p>
+        <h3 className="contact-direct__title">
+          メールで直接ご連絡いただくこともできます
+        </h3>
+        <a
+          href="mailto:info@kensetsu-tech.com"
+          className="contact-direct__email"
+        >
+          info@kensetsu-tech.com
+        </a>
+        <p className="contact-direct__note">3営業日以内にご返信いたします</p>
       </div>
     </section>
   );
