@@ -22,7 +22,7 @@ export default function Footer() {
               <h3>Company</h3>
               <ul>
                 <li><Link href="/company">会社概要</Link></li>
-                <li><Link href="/services">サービス</Link></li>
+                <li><Link href="/services">プロダクト</Link></li>
                 <li><Link href="/blog">ブログ</Link></li>
               </ul>
             </div>

@@ -18,8 +18,9 @@ export default function Members() {
 
       <Header />
       <PageHero
-        title="メンバー紹介"
-        subtitle="unionを開発・運営する<br />チームメンバー"
+        eyebrow="Members — メンバー"
+        title="unionをつくる人たち"
+        subtitle="現場に通い、手を動かし、一緒に悩む。<br />unionを日々開発・運営しているチームをご紹介します。"
       />
 
       <MemberProfiles />

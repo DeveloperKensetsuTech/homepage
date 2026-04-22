@@ -12,8 +12,15 @@ type Props = {
   blogs: Blog[];
 };
 
+function formatDate(iso: string) {
+  const d = new Date(iso);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return { full: `${y}.${m}.${day}`, year: String(y), month: m };
+}
+
 export default function BlogList({ blogs }: Props) {
-  // カテゴリー一覧を取得
   const categories = blogs
     .filter((blog) => blog.category)
     .reduce((acc, blog) => {
@@ -23,10 +30,9 @@ export default function BlogList({ blogs }: Props) {
       return acc;
     }, [] as { id: string; name: string }[]);
 
-  // アーカイブ（年月別）を取得
   const archives = blogs.reduce((acc, blog) => {
     const date = new Date(blog.publishedAt);
-    const yearMonth = `${date.getFullYear()}年${date.getMonth() + 1}月`;
+    const yearMonth = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}`;
     const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
 
     if (!acc.find((a) => a.key === key)) {
@@ -36,6 +42,9 @@ export default function BlogList({ blogs }: Props) {
     }
     return acc;
   }, [] as { key: string; label: string; count: number }[]);
+
+  const featured = blogs[0];
+  const rest = blogs.slice(1);
 
   return (
     <>
@@ -53,81 +62,140 @@ export default function BlogList({ blogs }: Props) {
 
       <Header />
       <PageHero
-        title="ブログ"
-        subtitle="現場の業務改善やプロダクトに関する情報を発信しています"
+        eyebrow="Journal — ブログ"
+        title="現場からの、小さな発信"
+        subtitle="プロダクトの裏側、現場の気づき、DX の実践。<br />unionチームが日々考えていることを、言葉にして残しています。"
       />
 
       <main className={styles.blogMain}>
         <div className={styles.container}>
-          <div className={styles.layout}>
-            <div className={styles.mainContent}>
-              {blogs.length === 0 ? (
-                <div className={styles.empty}>
-                  <p>記事がまだありません</p>
-                </div>
-              ) : (
-                <div className={styles.blogList}>
-                  {blogs.map((blog) => (
-                    <Link href={`/blog/${blog.id}`} key={blog.id} className={styles.blogCard}>
-                      {blog.eyecatch && (
-                        <div className={styles.eyecatch}>
-                          <Image
-                            src={blog.eyecatch.url}
-                            alt={blog.title}
-                            width={blog.eyecatch.width}
-                            height={blog.eyecatch.height}
-                          />
-                        </div>
-                      )}
-                      <div className={styles.content}>
-                        <h2 className={styles.blogTitle}>{blog.title}</h2>
-                        <div className={styles.meta}>
-                          {blog.category && (
-                            <span className={styles.category}>{blog.category.name}</span>
-                          )}
-                          <time className={styles.date}>
-                            {new Date(blog.publishedAt).toLocaleDateString('ja-JP')}
-                          </time>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
+          {blogs.length === 0 ? (
+            <div className={styles.empty}>
+              <p>まだ記事はありません。</p>
+              <p className={styles.emptySub}>近いうちに、現場の声をお届けします。</p>
             </div>
+          ) : (
+            <>
+              {(categories.length > 0 || archives.length > 0) && (
+                <nav className={styles.filterBar} aria-label="記事フィルター">
+                  {categories.length > 0 && (
+                    <div className={styles.filterGroup}>
+                      <span className={styles.filterLabel}>Category</span>
+                      <ul className={styles.filterList}>
+                        {categories.map((c) => (
+                          <li key={c.id}>
+                            <Link href={`/blog?category=${c.id}`} className={styles.filterLink}>
+                              {c.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {archives.length > 0 && (
+                    <div className={styles.filterGroup}>
+                      <span className={styles.filterLabel}>Archive</span>
+                      <ul className={styles.filterList}>
+                        {archives.map((a) => (
+                          <li key={a.key}>
+                            <Link href={`/blog?archive=${a.key}`} className={styles.filterLink}>
+                              {a.label}
+                              <span className={styles.filterCount}>{a.count}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </nav>
+              )}
 
-            <aside className={styles.sidebar}>
-              {categories.length > 0 && (
-                <div className={styles.sidebarWidget}>
-                  <h3 className={styles.sidebarTitle}>カテゴリー</h3>
-                  <ul className={styles.categoryList}>
-                    {categories.map((category) => (
-                      <li key={category.id}>
-                        <Link href={`/blog?category=${category.id}`} className={styles.categoryLink}>
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+              {featured && (
+                <Link href={`/blog/${featured.id}`} className={styles.featured}>
+                  <div className={styles.featuredMedia}>
+                    {featured.eyecatch ? (
+                      <Image
+                        src={featured.eyecatch.url}
+                        alt={featured.title}
+                        fill
+                        sizes="(max-width: 900px) 100vw, 1200px"
+                        priority
+                        style={{ objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <div className={styles.featuredMediaFallback} aria-hidden="true" />
+                    )}
+                    <span className={styles.featuredBadge}>Latest</span>
+                  </div>
+                  <div className={styles.featuredBody}>
+                    <div className={styles.featuredMeta}>
+                      {featured.category && (
+                        <span className={styles.category}>{featured.category.name}</span>
+                      )}
+                      <time className={styles.date}>
+                        {formatDate(featured.publishedAt).full}
+                      </time>
+                    </div>
+                    <h2 className={styles.featuredTitle}>{featured.title}</h2>
+                    <span className={styles.featuredArrow} aria-hidden="true">
+                      Read article
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
+                        <line x1="3" y1="12" x2="19" y2="12" />
+                        <path d="M14 6l6 6-6 6" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              )}
+
+              {rest.length > 0 && (
+                <div className={styles.listHead}>
+                  <p className={styles.listLabel}>All entries</p>
+                  <p className={styles.listCount}>
+                    <span>{String(rest.length).padStart(2, '0')}</span>
+                    <span className={styles.listCountDiv}>/</span>
+                    <span>{String(blogs.length).padStart(2, '0')}</span>
+                  </p>
                 </div>
               )}
 
-              {archives.length > 0 && (
-                <div className={styles.sidebarWidget}>
-                  <h3 className={styles.sidebarTitle}>アーカイブ</h3>
-                  <ul className={styles.archiveList}>
-                    {archives.map((archive) => (
-                      <li key={archive.key}>
-                        <Link href={`/blog?archive=${archive.key}`} className={styles.archiveLink}>
-                          {archive.label} ({archive.count})
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </aside>
-          </div>
+              <ol className={styles.entries}>
+                {rest.map((blog, i) => {
+                  const idx = String(i + 2).padStart(2, '0');
+                  return (
+                    <li key={blog.id} className={styles.entry}>
+                      <Link href={`/blog/${blog.id}`} className={styles.entryLink}>
+                        <span className={styles.entryIndex} aria-hidden="true">{idx}</span>
+                        <div className={styles.entryBody}>
+                          <div className={styles.entryMeta}>
+                            <time className={styles.date}>
+                              {formatDate(blog.publishedAt).full}
+                            </time>
+                            {blog.category && (
+                              <span className={styles.category}>{blog.category.name}</span>
+                            )}
+                          </div>
+                          <h3 className={styles.entryTitle}>{blog.title}</h3>
+                        </div>
+                        {blog.eyecatch && (
+                          <div className={styles.entryMedia}>
+                            <Image
+                              src={blog.eyecatch.url}
+                              alt={blog.title}
+                              fill
+                              sizes="(max-width: 900px) 40vw, 240px"
+                              style={{ objectFit: 'cover' }}
+                            />
+                          </div>
+                        )}
+                        <span className={styles.entryArrow} aria-hidden="true">→</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ol>
+            </>
+          )}
         </div>
       </main>
 

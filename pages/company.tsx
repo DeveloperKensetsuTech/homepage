@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import CompanyInfo from '@/components/CompanyInfo';
 import MissionVision from '@/components/MissionVision';
+import CTASection from '@/components/CTASection';
 
 export default function Company() {
   return (
@@ -18,12 +19,14 @@ export default function Company() {
 
       <Header />
       <PageHero
-        title="会社概要"
-        subtitle="unionを運営する<br />株式会社main characterについて"
+        eyebrow="Company — 会社概要"
+        title="unionをつくる会社"
+        subtitle="現場の隣で、職人と一緒にプロダクトを育てる。<br />株式会社main characterは、福岡・百道から現場発のSaaSを届けています。"
       />
 
       <CompanyInfo />
       <MissionVision />
+      <CTASection />
       <Footer />
     </>
   );

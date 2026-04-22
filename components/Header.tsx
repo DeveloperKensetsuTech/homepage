@@ -68,7 +68,7 @@ export default function Header() {
         <ul className={`tech-nav-links ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
           <li><Link href="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>ホーム</Link></li>
           <li><Link href="/company" onClick={closeMenu} className={isActive('/company') ? 'active' : ''}>会社概要</Link></li>
-          <li><Link href="/services" onClick={closeMenu} className={isActive('/services') ? 'active' : ''}>サービス</Link></li>
+          <li><Link href="/services" onClick={closeMenu} className={isActive('/services') ? 'active' : ''}>プロダクト</Link></li>
           <li><Link href="/blog" onClick={closeMenu} className={isActive('/blog') ? 'active' : ''}>ブログ</Link></li>
           <li>
             <Link href="/contact" onClick={closeMenu} className={`nav-cta ${isActive('/contact') ? 'active' : ''}`}>
