@@ -38,7 +38,7 @@
   --font-mono: 'Geist Mono', 'SFMono-Regular', monospace;
 
   /* タイポスケール */
-  --fs-display:    clamp(44px, 6.2vw, 84px);
+  --fs-display:    clamp(32px, 6.2vw, 84px);
   --fs-h2:         clamp(34px, 3.8vw, 56px);
   --fs-h3:         clamp(19px, 1.4vw, 22px);
   --fs-lede:       clamp(14.5px, 1.05vw, 16px);
@@ -382,10 +382,15 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 760px;
+  height: 100svh;
+  min-height: 560px;
   overflow: hidden;
   color: var(--white);
   background: var(--black);
+}
+
+@supports (height: 100dvh) {
+  .hero { height: 100dvh; }
 }
 
 /* stage for crossfading slides */
@@ -3415,6 +3420,9 @@ body {
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
     transition: right 0.3s;
     z-index: 1000;
+    /* モバイルパネルは白背景なので difference を解除し、通常の暗色テキストに戻す */
+    mix-blend-mode: normal;
+    color: var(--gray-800);
   }
 
   .tech-nav-links.mobile-menu-open {
@@ -3597,6 +3605,8 @@ body {
     color: var(--gray-700) !important;
     padding: 1rem 2rem !important;
     border-radius: 0 !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
   }
 
   /* Page hero v2 */
