@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kensetsu-tech.com/sitemap.xml
+Sitemap: https://www.kensetsu-tech.com/sitemap.xml

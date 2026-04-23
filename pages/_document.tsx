@@ -31,7 +31,7 @@ export default function Document() {
               '@type': 'Organization',
               name: '株式会社main character',
               alternateName: 'union',
-              url: 'https://kensetsu-tech.com',
+              url: 'https://www.kensetsu-tech.com',
               description: '建設・福祉など現場で働くプロフェッショナルのためのSaaSプロダクトシリーズを提供する企業',
               address: {
                 '@type': 'PostalAddress',
