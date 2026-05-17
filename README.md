@@ -30,12 +30,7 @@
    - カテゴリ別分類（アプリ開発、効率化支援、DXコンサル）
    - 課題・解決策・効果の明確な記載
 
-4. **メンバー紹介** (`/members`)
-   - 代表取締役 北島壮馬 プロフィール
-   - エンジニア 下平陵生 プロフィール
-   - チームの強み（3つのポイント）
-
-5. **お問い合わせ** (`/contact`)
+4. **お問い合わせ** (`/contact`)
    - 詳細問い合わせフォーム（会社名、担当者、サービス、予算、時期等）
    - バリデーション機能
    - 送信成功・エラーハンドリング
@@ -82,7 +77,6 @@ npm start
 - **トップページ**: http://localhost:3000/
 - **会社概要**: http://localhost:3000/company
 - **事例紹介**: http://localhost:3000/cases
-- **メンバー**: http://localhost:3000/members
 - **お問い合わせ**: http://localhost:3000/contact
 
 ## プロジェクト構造
@@ -98,7 +92,6 @@ maincharacterinchp/
 │   ├── index.tsx       # トップページ
 │   ├── company.tsx     # 会社概要
 │   ├── cases.tsx       # 事例紹介
-│   ├── members.tsx     # メンバー紹介
 │   ├── contact.tsx     # お問い合わせ
 │   └── api/            # APIルート
 │       └── contact.ts  # お問い合わせAPI

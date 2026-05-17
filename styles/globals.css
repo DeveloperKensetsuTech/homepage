@@ -3740,121 +3740,6 @@ body {
   }
 }
 
-/* ===== メンバーセクション ===== */
-.members-section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 5rem 2rem;
-}
-
-.members-inner {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.member-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.member-card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
-}
-
-.member-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 2rem 2rem 1.5rem;
-  border-bottom: 1px solid var(--gray-100);
-}
-
-.member-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--gray-900);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.member-name {
-  font-size: 1.25rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--gray-900);
-  margin-bottom: 0.125rem;
-}
-
-.member-position {
-  font-size: 0.8125rem;
-  color: var(--gray-500);
-  font-weight: 500;
-}
-
-.member-card-body {
-  padding: 1.5rem 2rem 2rem;
-}
-
-.member-section {
-  margin-bottom: 1.5rem;
-}
-
-.member-section:last-child {
-  margin-bottom: 0;
-}
-
-.member-section-label {
-  font-size: 0.6875rem;
-  font-family: var(--font-accent);
-  font-weight: 600;
-  color: var(--primary-color);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-
-.member-career-list {
-  list-style: none;
-  padding: 0;
-}
-
-.member-career-list li {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.8;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.member-career-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gray-400);
-}
-
-.member-vision {
-  font-size: 0.875rem;
-  color: var(--gray-600);
-  line-height: 1.8;
-}
-
 /* ===== 導入事例セクション ===== */
 .cases-section {
   max-width: var(--max-width);
@@ -4241,15 +4126,6 @@ body {
     font-size: clamp(28px, 8vw, 40px);
     letter-spacing: 0.02em;
     max-width: 14ch;
-  }
-
-  /* Members */
-  .members-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .members-inner {
-    grid-template-columns: 1fr;
   }
 
   /* Cases */
